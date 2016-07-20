@@ -22,9 +22,18 @@ export WSS_EXTURI=wsshost:9080
 ```
 
 ## Implementation
+### Message Format
+Messages are in JSON format, in the request must have a attribute "**type**", which is used to dispatch the request to handlers.
+
+```json
+    {
+        "type": "echo",
+        "msg": "hello websocket"
+    }
+```
 ### Server Side
 #### Request Handlers
-Request Handler is a function to client request (request is in JSON format, in the request must have a attribute "type", which is used to dispatch the request to handlers), example:
+Request Handler is a function to client request, example:
 ```javascript
     function echoHandler(data) {
         data.type = "echoback";

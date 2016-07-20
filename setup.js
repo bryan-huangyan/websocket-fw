@@ -25,5 +25,5 @@
     HOST: process.env.WSS_HOST || '0.0.0.0',
     PORT: process.env.WSS_PORT || 4080,
     EXTURI: process.env.WSS_EXTURI || 'localhost:4080',
-    DESCRIPTION: 'Websockets server for Arxan P2P blockchain platform'
+    DESCRIPTION: 'A websocket server-client handlers framework based on Nodejs and Express'
 };
