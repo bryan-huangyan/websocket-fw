@@ -1,0 +1,32 @@
+extends ./template/layout.pug
+    
+block custom_header
+    script(src='/js/wsclient.js')
+    script(type='text/javascript').
+        $(document).ready(function(){
+            $("#reqBody").val('{"type":"echo", "message":"hello"}');
+            register('*', function(data){
+                console.log("Response", JSON.stringify(data));
+                $("#resBody").val(JSON.stringify(data));
+            });
+        });
+
+        function sendmsg(){
+            console.log("send", $("#reqBody").val());
+            ws.send($("#reqBody").val());
+        }
+block navpanel
+    #logo Websockets Tester
+
+block content
+    #contentPanel
+        h1 Websockets Tester
+        hr
+        
+        p
+            .hint Request JSON Body
+            textarea(type="textarea" style="width: 600px; height: 200px;")#reqBody
+        p
+            .hint Response
+            textarea(type="textarea" style="width: 600px; height: 200px;" readonly)#resBody
+        button(type="button" onclick="sendmsg()")#sendButton 发送

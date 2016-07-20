@@ -1,0 +1,22 @@
+extends ./layout.pug
+	
+	
+block custom_header
+	script(type='text/javascript').
+		$(document).ready(function(){
+			
+		});
+		
+		
+block navpanel
+	#logo ERROR
+	
+	
+block content
+	#contentPanel
+		
+		h1 Error: #{bag.error.status}
+		center
+			h2 #{bag.error.msg}
+			
+		hr
